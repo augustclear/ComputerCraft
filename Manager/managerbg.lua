@@ -2,7 +2,7 @@
 
 local manlib = require("lib.managerlib")
 local tx,ty = 1,1
-local mx,my = getSize()
+local mx,my = term.getSize()
 
 term.write("Open for connections")
 
