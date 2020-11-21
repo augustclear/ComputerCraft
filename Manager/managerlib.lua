@@ -28,11 +28,16 @@ end
 
 local function get_heartbeats()
     local id, msg = rednet.receive("heartbeat")
-    term.write("[" .. id .. "]" .. msg)
+    workerlist.id = msg
+    --term.write("[" .. id .. "]" .. msg)
 end
 
 local function get_workers()
-    workerlist = rednet.lookup("workers")
+    return workerlist
 end
 
-return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, get_workers = get_workers}
+local function print_workers()
+    term.tabulate(workerlist)
+end
+
+return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, print_workers = print_workers}
