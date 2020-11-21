@@ -1,0 +1,38 @@
+--Manager Library
+
+local _x, _y, _z
+local workerlist = {}
+
+local function open()
+    rednet.host("boss","boss")
+    rednet.open("top")
+end
+
+local function close()
+
+end
+
+local function init()
+    open()
+    _x, _y, _z = gps.locate(5)
+    if _x == nil then
+        do return -1 end
+    end
+    return 0
+end
+
+local function send(workername, s)
+    local id = rednet.lookup("workers",workername)
+    return rednet.send(id,s,"workers")
+end
+
+local function get_heartbeats()
+    local id, msg = rednet.receive("heartbeat")
+    term.write("[" .. id .. "]" .. msg)
+end
+
+local function get_workers()
+    workerlist = rednet.lookup("workers")
+end
+
+return {open = open, close = close, init = init, send = send, get_heartbeats = get_heartbeats, get_workers = get_workers}
