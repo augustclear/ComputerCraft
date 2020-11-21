@@ -9,7 +9,7 @@ term.write("Open for connections")
 while true do
     ty = ty + 1
     term.setCursorPos(tx,ty)
-    tx,ty = getCursorPos()
+    tx,ty = term.getCursorPos()
     if ty > my then
         scroll(1)
     end
