@@ -29,6 +29,7 @@ end
 local function get_heartbeats()
     local id, msg = rednet.receive("heartbeat")
     workerlist[id] = msg
+    print(workerlist[id])
     --term.write("[" .. id .. "]" .. msg)
 end
 
