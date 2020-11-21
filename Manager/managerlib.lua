@@ -28,7 +28,7 @@ end
 
 local function get_heartbeats()
     local id, msg = rednet.receive("heartbeat")
-    workerlist.id = msg
+    workerlist[id] = msg
     --term.write("[" .. id .. "]" .. msg)
 end
 
@@ -38,7 +38,6 @@ end
 
 local function print_workers()
     textutils.pagedTabulate(workerlist)
-    term.write(workerlist[0])
 end
 
 return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, print_workers = print_workers}
