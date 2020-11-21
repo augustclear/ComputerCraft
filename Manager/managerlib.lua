@@ -27,7 +27,25 @@ local function send_command(workername, s)
     return rednet.send(id,s,"workers")
 end
 
+local function write_workerlist()
+    local tmp = textutils.serialize(workerlist)
+    local f = io.open("workerlist.lua","w")
+    f:write(tmp)
+    f:close()
+end
+
+local function read_workerlist()
+    local tmp
+    local f = io.open("workerlist.lua","r")
+    if f ~= nil then
+        tmp = f:read("*all")
+        f:close()
+        workerlist = textutils.unserialize(tmp)
+    end
+end
+
 local function get_heartbeats()
+    read_workerlist()
     local id, msg = rednet.receive("heartbeat")
     msg = textutils.unserialize(msg)
     local name, x, y, z = msg.name, msg.x, msg.y, msg.z
@@ -42,18 +60,13 @@ local function get_heartbeats()
     worker["y"] = y
     worker["z"] = z
     workerlist[id] = worker
-end
-
-local function get_workers()
-    return workerlist
+    write_workerlist()
 end
 
 local function print_workers()
     --textutils.pagedTabulate(workerlist)
-    term.clear()
-    term.setCursorPos(1,2)
     for i,v in next,workerlist,nil do
-        print("[" .. i .. "] " .. v["name"] .. " " .. v["x"] .. "," .. v["y"] .. "," .. v["z"] .. " " .. v["command"])
+        print("[" .. i .. "] ".. v["command"] .. " " .. v["name"] .. " " .. v["x"] .. "," .. v["y"] .. "," .. v["z"])
     end
 end
 

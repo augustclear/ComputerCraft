@@ -8,5 +8,7 @@ while true do
     --Go to new line
     term.setCursorPos(1,2)
     manlib.get_heartbeats()
+    term.clear()
+    term.setCursorPos(1,2)
     manlib.print_workers()
 end
