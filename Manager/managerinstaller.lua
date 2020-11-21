@@ -26,5 +26,4 @@ manlib.init()
 --Files to run
  
 shell.openTab("managerbg")
---local id = shell.openTab("managerfg")
---shell.switchTab(id)
+shell.run("managerfg")
