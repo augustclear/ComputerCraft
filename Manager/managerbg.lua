@@ -16,6 +16,7 @@ while true do
     if ty > my then
         if ty % 2 == 0 then
             term.scroll(1)
+            term.write("scroll")
         end
     end
     manlib.get_heartbeats()
