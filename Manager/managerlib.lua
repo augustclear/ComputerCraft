@@ -37,7 +37,8 @@ local function get_workers()
 end
 
 local function print_workers()
-    textutils.tabulate(workerlist)
+    textutils.pagedTabulate(workerlist)
+    term.write(workerlist[0])
 end
 
 return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, print_workers = print_workers}
