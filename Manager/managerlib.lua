@@ -38,9 +38,9 @@ local function get_heartbeats()
             worker.name = "none"
         end
     end
-    worker["x"] = 0
-    worker["y"] = 0
-    worker["z"] = 0
+    worker["x"] = x
+    worker["y"] = y
+    worker["z"] = z
     workerlist[id] = worker
 end
 
