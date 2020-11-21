@@ -38,7 +38,11 @@ local function get_workers()
 end
 
 local function print_workers()
-    textutils.pagedTabulate(workerlist)
+    --textutils.pagedTabulate(workerlist)
+    term.setCursorPos(1,1)
+    for index,value in ipairs(workerlist) do
+        print(index,value)
+    end
 end
 
 return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, print_workers = print_workers}
