@@ -34,7 +34,9 @@ local function get_heartbeats()
     worker["name"] = name
     if workerlist[id] == nil then
         worker.command = "none"
-        worker.name = "none"
+        if name == nil then
+            worker.name = "none"
+        end
     end
     worker["x"] = 0
     worker["y"] = 0
@@ -50,8 +52,8 @@ local function print_workers()
     --textutils.pagedTabulate(workerlist)
     term.clear()
     term.setCursorPos(1,2)
-    for index,value in next,workerlist,nil do
-        print("[" .. index .. "] " .. textutils.serialize(value))
+    for i,v in next,workerlist,nil do
+        print("[" .. i .. "] " .. v["name"] .. " " .. v["x"] .. "," .. v["y"] .. "," .. v["z"] .. " " .. v["command"])
     end
 end
 
