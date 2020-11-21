@@ -1,10 +1,10 @@
 --Function to get files
 
 function getFile(url, filename) 
-	if fs.exists(filename) then
+	--if fs.exists(filename) then
 		--print("Delete "..filename)
 		fs.delete(filename)
-	end
+	--end
 	shell.run("wget",url,filename)
 end
 
