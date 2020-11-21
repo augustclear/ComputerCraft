@@ -2,7 +2,7 @@
 
 local _x, _y, _z
 local workerlist = {}
-local worker = {name = "none", command = "none", x, y, z}
+local worker = {name = "none", command = "none", x = 0, y = 0, z = 0}
 
 local function open()
     rednet.host("boss","boss")
@@ -29,7 +29,7 @@ end
 
 local function get_heartbeats()
     local id, msg = rednet.receive("heartbeat")
-    local name, x, y, z = msg.name, msg.x, msg.y, msg.z
+    --local name, x, y, z = 
     msg = textutils.unserialize(msg)
     if workerlist[id].command == nil then
         worker.command = "none"
@@ -37,7 +37,7 @@ local function get_heartbeats()
     if workerlist[id].name == nil then
         worker.name = "none"
     end
-    worker.name, worker.x, worker.y worker.z = name, x, y, z
+    worker.name, worker.x, worker.y worker.z = msg.name, msg.x, msg.y, msg.z
     workerlist[id] = worker
 end
 
