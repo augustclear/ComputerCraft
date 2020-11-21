@@ -46,7 +46,7 @@ end
 local function send_heartbeat()
     local msg
     x, y, z = gps.locate(5)
-    msg = textutils.serialize({x,y,z})
+    msg = textutils.serialize({name = os.computerLabel(),x=x,y=y,z=z})
     bossid = get_bossid()
     rednet.send(bossid,msg, "heartbeat")
     return x, y, z

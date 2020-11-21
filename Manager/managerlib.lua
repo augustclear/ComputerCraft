@@ -2,7 +2,7 @@
 
 local _x, _y, _z
 local workerlist = {}
-local worker = {command = "none", x, y, z}
+local worker = {name = "none", command = "none", x, y, z}
 
 local function open()
     rednet.host("boss","boss")
@@ -33,7 +33,10 @@ local function get_heartbeats()
     if workerlist[id].command == nil then
         worker.command = "none"
     end
-    worker.x, worker.y worker.z = msg
+    if workerlist[id].name == nil then
+        worker.name = "none"
+    end
+    worker.name, worker.x, worker.y worker.z = msg.name, msg.x, msg.y, msg.z
     workerlist[id] = worker
 end
 
