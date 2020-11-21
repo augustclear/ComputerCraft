@@ -21,7 +21,7 @@ local function init()
     return 0
 end
 
-local function send(workername, s)
+local function send_command(workername, s)
     local id = rednet.lookup("workers",workername)
     return rednet.send(id,s,"workers")
 end
@@ -35,4 +35,4 @@ local function get_workers()
     workerlist = rednet.lookup("workers")
 end
 
-return {open = open, close = close, init = init, send = send, get_heartbeats = get_heartbeats, get_workers = get_workers}
+return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, get_workers = get_workers}

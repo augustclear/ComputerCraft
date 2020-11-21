@@ -14,7 +14,9 @@ while true do
     --Scroll if past screen
     tx,ty = term.getCursorPos()
     if ty > my then
-        term.scroll(1)
+        if ty % 2 == 0 then
+            term.scroll(1)
+        end
     end
     manlib.get_heartbeats()
 end
