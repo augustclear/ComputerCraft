@@ -37,7 +37,7 @@ local function get_heartbeats()
     if workerlist[id].name == nil then
         worker.name = "none"
     end
-    worker.name name
+    worker.name = name
     worker.x = x
     worker.y = y
     worker.x = y
