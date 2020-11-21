@@ -29,7 +29,7 @@ end
 
 local function get_heartbeats()
     local id, msg = rednet.receive("heartbeat")
-    --local name, x, y, z = 
+    local name, x, y, z = msg.name, msg.x, msg.y, msg.z
     msg = textutils.unserialize(msg)
     if workerlist[id].command == nil then
         worker.command = "none"
@@ -37,7 +37,10 @@ local function get_heartbeats()
     if workerlist[id].name == nil then
         worker.name = "none"
     end
-    worker.name, worker.x, worker.y worker.z = msg.name, msg.x, msg.y, msg.z
+    worker.name name
+    worker.x = x
+    worker.y = y
+    worker.x = y
     workerlist[id] = worker
 end
 
