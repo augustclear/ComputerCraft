@@ -37,7 +37,8 @@ local function get_heartbeats()
         worker.name = "none"
     end
     --worker.name, worker.x, worker.y worker.z = msg.name, msg.x, msg.y, msg.z
-    worker.name = msg.name
+    s = msg.name
+    worker.name = s
     workerlist[id] = worker
 end
 
