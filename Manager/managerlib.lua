@@ -2,7 +2,7 @@
 
 local _x, _y, _z
 local workerlist = {}
-local worker {command = "none", x, y, z}
+local worker = {command = "none", x, y, z}
 
 local function open()
     rednet.host("boss","boss")
