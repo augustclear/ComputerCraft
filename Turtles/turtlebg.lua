@@ -1,5 +1,4 @@
 local w = require("lib.turtlelib")
-
 term.setCursorPos(1,1)
 term.write("Connecting to server...\n")
 
