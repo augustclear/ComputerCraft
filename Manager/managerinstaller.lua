@@ -26,4 +26,4 @@ manlib.init()
 --Files to run
  
 shell.openTab("managerbg")
-shell.run("managerfg")
+shell.openTab("managerfg")
