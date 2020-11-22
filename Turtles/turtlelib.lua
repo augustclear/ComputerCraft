@@ -172,4 +172,4 @@ local function take_orders()
     return msg
 end
 
-return {open = open, close = close, init = init, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders}
+return {open = open, close = close, init = init, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to}
