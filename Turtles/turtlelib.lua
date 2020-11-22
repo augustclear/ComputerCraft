@@ -29,8 +29,6 @@ local function get_direction()
             turtle.forward()
             x2,y2,z2 = get_location()
             turtle.back()
-            print("Fuck")
-            print(y2)
 
             if y2 > y1 then
                 direction = 1
@@ -139,7 +137,7 @@ end
 local function init()
     open()
     get_location()
-    print(get_direction())
+    get_direction()
     if x == nil then
         do return -1 end
     end
