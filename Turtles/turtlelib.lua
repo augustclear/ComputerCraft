@@ -127,10 +127,10 @@ local function mz(n)
 end
 
 local function go_to(gx, gy, gz)
-    move_init()
+    get_location()
+    mz(gz-z)
     mx(gx-x)
     my(gy-y)
-    mz(gz-z)
 end
 
 local function get_bossid()
