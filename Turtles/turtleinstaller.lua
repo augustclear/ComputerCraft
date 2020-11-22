@@ -1,8 +1,9 @@
 --Function to get nuget
 
 fs.makeDir("lib")
-fs.delete("lib/genlib")
-shell.run("wget","https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utilities/genlib.lua","lib/genlib")
+if ~fs.exists("lib/genlib") then
+    shell.run("wget","https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utilities/genlib.lua","lib/genlib")
+end
 
 local gl = require("lib.genlib")
 
