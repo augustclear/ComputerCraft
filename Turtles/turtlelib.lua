@@ -60,6 +60,7 @@ local function face_direction(d)
     end
     while cardinal_directions[direction] ~= d do
         turtle.turnRight()
+        direction = (direction)%4 + 1
         print(d .. "is not equal to" .. cardinal_directions[direction])
     end
 end
