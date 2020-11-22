@@ -47,6 +47,13 @@ local function get_direction()
     return cardinal_directions[direction]
 end
 
+local function move_init()
+    get_location()
+    if direction == nil then
+        get_direction()
+    end
+end
+
 local function face_direction(d)
     if direction == nil then
         get_direction()
@@ -137,13 +144,6 @@ local function get_bossid()
         os.sleep(5)
     end
     return -1
-end
-
-local function move_init()
-    get_location()
-    if direction == nil then
-        get_direction()
-    end
 end
 
 local function send(s)
