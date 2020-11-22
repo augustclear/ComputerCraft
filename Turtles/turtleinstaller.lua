@@ -24,12 +24,13 @@ term.setCursorPos(1,1)
 local w = require("lib.turtlelib")
 w.open()
 
+local id = shell.openTab("turtlebg")
+multishell.setTitle(id,"GPS")
+
 --Files to run
 if turtle.getFuelLevel() == 0 then
     print("I need food!!!!")
 else
-    local id = shell.openTab("turtlebg")
-    multishell.setTitle(id,"GPS")
     id = shell.openTab("turtlefg")
     multishell.setTitle(id,"COMMAND")
 end
