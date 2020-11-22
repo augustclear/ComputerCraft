@@ -1,8 +1,7 @@
 --Turtle Library
 
-local x, y, z
+local name, command, x, y, z
 local bossid
-local name
 
 local function open()
     name = os.getComputerLabel() or os.getComputerID() .. ""
@@ -46,7 +45,7 @@ end
 local function send_heartbeat()
     local msg
     x, y, z = gps.locate(5)
-    msg = textutils.serialize({name = os.computerLabel(),x=x,y=y,z=z})
+    msg = textutils.serialize({name = os.computerLabel(),command=command,x=x,y=y,z=z})
     bossid = get_bossid()
     rednet.send(bossid,msg, "heartbeat")
     return x, y, z
@@ -56,6 +55,8 @@ local function take_orders()
     local sender, msg, protocol = rednet.receive("workers")
     if msg == "close" then
         close()
+    elseif msg == "reboot" then
+        os.reboot()
     else
         shell.run(msg);
     end

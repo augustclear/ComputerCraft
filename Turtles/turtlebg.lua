@@ -7,5 +7,5 @@ while true do
     term.setCursorPos(1,2)
     term.clearLine()
     term.write("[GPS]: " .. x .. "," .. y .. "," .. z .. "\n")
-    os.sleep(2)
+    os.sleep(5)
 end
