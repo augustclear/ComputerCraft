@@ -7,6 +7,7 @@ local function nuget(url,filename)
         print("[Can't connect to git...]")
     else
         f:write(tmp.readAll())
+        print("[Read " .. filenmame .. " successfully]")
     end
     f:close()
 end
