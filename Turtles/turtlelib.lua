@@ -29,6 +29,7 @@ local function get_direction()
             turtle.forward()
             x2,y2,z2 = get_location()
             turtle.back()
+            print(y2)
 
             if y2 > y1 then
                 direction = 1
@@ -61,7 +62,7 @@ local function df()
 end
 
 local function du()
-    while turtle.detectUp() do
+    while turtle.detectUp() doprint(x2 .. y2 .. z2)
         turtle.digUp()
     end
 end
