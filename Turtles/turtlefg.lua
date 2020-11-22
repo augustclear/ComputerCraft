@@ -2,6 +2,7 @@ local w = require("lib.turtlelib")
 local command = nil;
 
 --Original Test Position 10,40,240
+print("Starting Test")
 
 --term.setCursorPos(1,1)
 --term.write("Awaiting orders...")
