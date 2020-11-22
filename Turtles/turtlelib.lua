@@ -135,7 +135,7 @@ end
 
 local function go_to(gx, gy, gz)
     get_location()
-    print("I have to move" .. (gx-x) .. "" .. (gy-y) .. "" .. (gz-z))
+    print("I have to move" .. gx-x .. " " .. gy-y .. " " .. gz-z)
     mz(gz-z)
     mx(gx-x)
     my(gy-y)
