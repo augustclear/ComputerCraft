@@ -24,7 +24,9 @@ end
 
 local function send_command(workername, s)
     local id = rednet.lookup("workers",workername)
-    return rednet.send(id,s,"workers")
+    if id ~= nil then
+        rednet.send(id,s,"workers")
+    end
 end
 
 local function write_workerlist()
