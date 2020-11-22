@@ -63,7 +63,7 @@ local function df()
 end
 
 local function du()
-    while turtle.detectUp() doprint(x2 .. y2 .. z2)
+    while turtle.detectUp() do
         turtle.digUp()
     end
 end
