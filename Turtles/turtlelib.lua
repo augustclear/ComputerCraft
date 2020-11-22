@@ -135,9 +135,9 @@ end
 
 local function go_to(gx, gy, gz)
     get_location()
-    mz(gz-z)
-    mx(gx-x)
-    my(gy-y)
+    mz(gz-z+1)
+    mx(gx-x+1)
+    my(gy-y+1)
 end
 
 local function get_bossid()
