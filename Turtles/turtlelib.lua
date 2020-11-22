@@ -27,7 +27,7 @@ local function get_direction()
         if direction == nil then
             x1,y1,z1 = get_location()
             turtle.forward()
-            x2,yz,z2 = get_location()
+            x2,y2,z2 = get_location()
             turtle.back()
 
             if y2 > y1 then
