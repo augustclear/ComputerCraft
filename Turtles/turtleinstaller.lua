@@ -25,8 +25,11 @@ local w = require("lib.turtlelib")
 w.open()
 
 --Files to run
-
-local id = shell.openTab("turtlebg")
-multishell.setTitle(id,"GPS")
-id = shell.openTab("turtlefg")
-multishell.setTitle(id,"COMMAND")
+if turtle.getFuelLevel() == zero then
+    print("I need food!!!!")
+else
+    local id = shell.openTab("turtlebg")
+    multishell.setTitle(id,"GPS")
+    id = shell.openTab("turtlefg")
+    multishell.setTitle(id,"COMMAND")
+end
