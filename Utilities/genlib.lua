@@ -1,7 +1,7 @@
 --General CC Library
 
 local function nuget(url,filename)
-    local tmp = http.get(url,{"Cache-Control: no-cache","Cache-Control: no-store","Cache-Control: max-age=0"})
+    local tmp = http.get(url,{"Cache-Control: no-cache","Cache-Control: no-store","Cache-Control: max-age=0","Clear-Site-Data: \"*\""})
     if tmp == nil then
         print("[Can't connect to git...]")
     else
