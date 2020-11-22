@@ -11,7 +11,7 @@ local function nuget(url,filename)
             fs.delete(filename)
             shell.run("wget",url,filename)
         else
-            print("[Read " .. filenmame .. " successfully]")
+            print("[Read " .. filename .. " successfully]")
             local f = io.open(filename,"w")
             f:write(tmp)
             f:close()
