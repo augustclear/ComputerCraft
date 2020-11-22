@@ -261,4 +261,16 @@ local function go_to_fuelstop()
     end
 end
 
-return {open = open, close = close, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to, go_home=go_home, go_to_fuelstop=go_to_fuelstop}
+return {
+    open = open,
+    close = close,
+    send = send,
+    send_heartbeat = send_heartbeat,
+    take_orders = take_orders,
+    go_to = go_to,
+     go_home=go_home,
+    go_to_fuelstop=go_to_fuelstop,
+    write_config_value=write_config_value,
+    read_config=read_config,
+    read_config_value=read_config_value
+    }
