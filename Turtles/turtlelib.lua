@@ -120,6 +120,7 @@ local function mz(n)
 end
 
 local function go_to(gx, gy, gz)
+    move_init()
     mx(gx-x)
     my(gy-y)
     mz(gz-z)
