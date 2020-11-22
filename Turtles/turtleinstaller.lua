@@ -1,7 +1,9 @@
 --Function to get nuget
 
 fs.makeDir("lib")
-if ~(fs.exists("lib/genlib")) then
+if fs.exists("lib/genlib" then
+    --Something
+else
     shell.run("wget","https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utilities/genlib.lua","lib/genlib")
 end
 
