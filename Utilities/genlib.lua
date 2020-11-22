@@ -1,15 +1,23 @@
 --General CC Library
 
 local function nuget(url,filename)
-    local f = io.open(filename,"w")
-    local tmp = http.get("url",{"Cache-Control: no-cache","Cache-Control: no-store","Cache-Control: max-age=0"})
+    local tmp = http.get(url,{"Cache-Control: no-cache","Cache-Control: no-store","Cache-Control: max-age=0"})
     if tmp == nil then
         print("[Can't connect to git...]")
     else
-        f:write(tmp.readAll())
-        print("[Read " .. filenmame .. " successfully]")
+        tmp = tmp.readAll()
+        if tmp == "" then
+            prin("Didn't work... Trying wget")
+            fs.delete(filename)
+            shell.run("wget",url,filename)
+        else
+            print("[Read " .. filenmame .. " successfully]")
+            local f = io.open(filename,"w")
+            f:write(tmp)
+            f:close()
+        end
+        
     end
-    f:close()
 end
 
 return {nuget = nuget}
