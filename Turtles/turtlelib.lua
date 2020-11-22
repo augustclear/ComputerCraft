@@ -15,7 +15,7 @@ end
 local function close()
 
 end
-
+--[[
 local function get_location()
     x, y, z = gps.locate(5)
     return x,y,z
@@ -120,6 +120,8 @@ end
 local function go_to(gx, gy, gz)
 
 end
+
+]]
 
 local function get_bossid()
     local id;
