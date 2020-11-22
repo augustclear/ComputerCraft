@@ -1,19 +1,18 @@
---Function to get files
+--Function to get nuget
 
-function getFile(url, filename) 
-	if fs.exists(filename) then
-		--print("Delete "..filename)
-		fs.delete(filename)
-	end
-	shell.run("wget",url,filename)
+if ~fs.exists("lib/genlib") then
+	fs.makeDir("lib")
+	shell.run("wget","https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utilities/genlib.lua","lib/genlib")
 end
+
+local gl = require("lib.genlib")
 
 --Calls to get files
 
-fs.makeDir("lib")
-getFile("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlelib.lua","lib/turtlelib")
-getFile("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlebg.lua","turtlebg")
-getFile("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlefg.lua","turtlefg")
+gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utilities/genlib.lua","lib/genlib")
+gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlelib.lua","lib/turtlelib")
+gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlebg.lua","turtlebg")
+gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlefg.lua","turtlefg")
 
 term.clear()
 term.setCursorPos(1,1)
