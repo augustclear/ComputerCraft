@@ -1,14 +1,14 @@
 --Manager Background Application
 
-local manlib = require("lib.managerlib")
+local m = require("lib.managerlib")
 
 term.write("Open for connections")
 
 while true do
     --Go to new line
     term.setCursorPos(1,2)
-    manlib.get_heartbeats()
+    m.get_heartbeats()
     term.clear()
     term.setCursorPos(1,2)
-    manlib.print_workers()
+    m.print_workers()
 end

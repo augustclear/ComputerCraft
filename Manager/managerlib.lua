@@ -70,4 +70,4 @@ local function print_workers()
     end
 end
 
-return {open = open, close = close, init = init, send_command = send, get_heartbeats = get_heartbeats, print_workers = print_workers}
+return {open = open, close = close, init = init, send_command = send_command, get_heartbeats = get_heartbeats, print_workers = print_workers}

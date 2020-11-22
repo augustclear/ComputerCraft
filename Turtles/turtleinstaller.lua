@@ -27,4 +27,5 @@ w.init()
 
 local id = shell.openTab("turtlebg")
 multishell.setTitle(id,"GPS")
---shell.run("turtlefg")
+id = shell.openTab("turtlefg")
+multishell.setTitle(id,"COMMAND")
