@@ -75,7 +75,7 @@ local function dd()
 end
 
 local function mx(n)
-    get_location()
+    move_init()
     local gx = x + n
     if n > 0 then
         face_direction("east")
@@ -90,7 +90,7 @@ local function mx(n)
 end
 
 local function my(n)
-    get_location()
+    move_init()
     local gy = y + n
     if n > 0 then
         face_direction("north")
@@ -105,7 +105,7 @@ local function my(n)
 end
 
 local function mz(n)
-    get_location()
+    move_init()
     local gz = z + n
     while z ~= gz do
         get_location()
@@ -120,7 +120,9 @@ local function mz(n)
 end
 
 local function go_to(gx, gy, gz)
-
+    mx(gx-x)
+    my(gy-y)
+    mz(gz-z)
 end
 
 local function get_bossid()
@@ -136,14 +138,11 @@ local function get_bossid()
     return -1
 end
 
-local function init()
-    open()
+local function move_init()
     get_location()
-    get_direction()
-    if x == nil then
-        do return -1 end
+    if direction == nil then
+        get_direction()
     end
-    return 0
 end
 
 local function send(s)
@@ -172,4 +171,4 @@ local function take_orders()
     return msg
 end
 
-return {open = open, close = close, init = init, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to}
+return {open = open, close = close, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to}

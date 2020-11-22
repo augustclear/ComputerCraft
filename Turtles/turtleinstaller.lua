@@ -22,7 +22,7 @@ term.setCursorPos(1,1)
 --Setup Commands
 
 local w = require("lib.turtlelib")
-w.init()
+w.open()
 
 --Files to run
 
