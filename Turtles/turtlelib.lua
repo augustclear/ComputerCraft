@@ -235,12 +235,30 @@ end
 
 local function go_to(gx, gy, gz)
     get_location()
-    print("I have to move" .. gx-x .. " " .. gy-y .. " " .. gz-z)
+    --print("I have to move" .. gx-x .. " " .. gy-y .. " " .. gz-z)
     mz(gz-z)
     mx(gx-x)
     my(gy-y)
 end
 
+local function go_home()
+    local homex,homey,homez = read_config_value("home")
+    if homex == nil then
+        print("I have no home :(")
+    else
+        go_to(homex,homey,270)
+        go_to(homex,homey,homez)
+    end
+end
 
+local function go_to_fuelstop()
+    local fuelx,fuely,fuelz = read_config_value("fuel_stop")
+    if fuelx == nil then
+        print("I have no fuel stop :(")
+    else
+        go_to(fuelx,fuely,fuelz + 10)
+        go_to(fuelx,fuely,fuelz)
+    end
+end
 
-return {open = open, close = close, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to}
+return {open = open, close = close, send = send, send_heartbeat = send_heartbeat, take_orders = take_orders, go_to = go_to, go_home=go_home, go_to_fuelstop=go_to_fuelstop}
