@@ -23,24 +23,26 @@ end
 
 local function get_direction()
     local x1,y1,z1, x2, y2, z2
-    for i=1,4 do
-        if direction == nil then
-            x1,y1,z1 = get_location()
-            turtle.forward()
-            x2,y2,z2 = get_location()
-            turtle.back()
+    while direction == nil do
+        for i=1,4 do
+            if direction == nil then
+                x1,y1,z1 = get_location()
+                turtle.forward()
+                x2,y2,z2 = get_location()
+                turtle.back()
 
-            if y2 > y1 then
-                direction = 1
-            elseif y2 < y1 then
-                direction = 3
-            elseif x2 > x1 then
-                direction = 2
-            elseif x2 < x1 then
-                direction = 4
+                if y2 > y1 then
+                    direction = 1
+                elseif y2 < y1 then
+                    direction = 3
+                elseif x2 > x1 then
+                    direction = 2
+                elseif x2 < x1 then
+                    direction = 4
+                end
             end
+            turtle.turnRight()
         end
-        turtle.turnRight()
     end
     return cardinal_directions[direction]
 end
