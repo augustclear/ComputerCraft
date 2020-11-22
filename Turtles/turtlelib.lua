@@ -60,6 +60,7 @@ local function face_direction(d)
     end
     while cardinal_directions[direction] ~= d do
         turtle.turnRight()
+        print(d .. "is not equal to" .. cardinal_directions[direction])
     end
 end
 
@@ -82,7 +83,7 @@ local function dd()
 end
 
 local function mx(n)
-    move_init()
+    get_location()
     local gx = x + n
     if n > 0 then
         face_direction("east")
@@ -97,7 +98,7 @@ local function mx(n)
 end
 
 local function my(n)
-    move_init()
+    get_location()
     local gy = y + n
     if n > 0 then
         face_direction("north")
@@ -112,7 +113,7 @@ local function my(n)
 end
 
 local function mz(n)
-    move_init()
+    get_location()
     local gz = z + n
     while z ~= gz do
         get_location()
