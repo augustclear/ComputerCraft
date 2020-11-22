@@ -14,8 +14,8 @@ gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtl
 gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlebg.lua","turtlebg")
 gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlefg.lua","turtlefg")
 
-term.clear()
-term.setCursorPos(1,1)
+--term.clear()
+--term.setCursorPos(1,1)
 
 --Setup Commands
 --[[
