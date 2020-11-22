@@ -64,7 +64,7 @@ local function face_direction(d)
         if direction == 5 then
             direction = 1
         end
-        print(d .. " is not equal to " .. cardinal_directions[direction])
+        --print(d .. " is not equal to " .. cardinal_directions[direction])
     end
 end
 
@@ -135,9 +135,10 @@ end
 
 local function go_to(gx, gy, gz)
     get_location()
-    mz(gz-z+1)
-    mx(gx-x+1)
-    my(gy-y+1)
+    print("I have to move" .. (gx-x) .. "" .. (gy-y) .. "" .. (gz-z))
+    mz(gz-z)
+    mx(gx-x)
+    my(gy-y)
 end
 
 local function get_bossid()
