@@ -94,11 +94,11 @@ local function mx(n)
     elseif n < 0 then
         face_direction("west")
     end
-    print("Moving " .. cardinal_directions[direction] .. " " .. n)
+    --print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while x ~= gx do
-        get_location()
         df()
         turtle.forward()
+        get_location()
     end
 end
 
@@ -110,11 +110,11 @@ local function my(n)
     elseif n < 0 then
         face_direction("south")
     end
-    print("Moving " .. cardinal_directions[direction] .. " " .. n)
+    --print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while y ~= gy do
-        get_location()
         df()
         turtle.forward()
+        get_location()
     end
 end
 
@@ -122,7 +122,6 @@ local function mz(n)
     get_location()
     local gz = z + n
     while z ~= gz do
-        get_location()
         if z < gz then
             du()
             turtle.up()
@@ -130,6 +129,7 @@ local function mz(n)
             dd()
             turtle.down()
         end
+        get_location()
     end
 end
 
