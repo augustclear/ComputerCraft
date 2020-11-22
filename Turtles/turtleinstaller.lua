@@ -25,7 +25,7 @@ local w = require("lib.turtlelib")
 w.open()
 
 --Files to run
-if turtle.getFuelLevel() == zero then
+if turtle.getFuelLevel() == 0 then
     print("I need food!!!!")
 else
     local id = shell.openTab("turtlebg")
