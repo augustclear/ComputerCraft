@@ -94,6 +94,7 @@ local function mx(n)
     elseif n < 0 then
         face_direction("west")
     end
+    print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while x ~= gx do
         get_location()
         df()
@@ -109,6 +110,7 @@ local function my(n)
     elseif n < 0 then
         face_direction("south")
     end
+    print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while y ~= gy do
         get_location()
         df()
