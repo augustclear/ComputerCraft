@@ -3,10 +3,11 @@
 local name, command,direction, x, y, z
 local bossid
 local cardinal_directions = {[1] = "north", [2] = "east", [3] = "south", [4] = "west"}
+local config = {home={x,y,z},fuel_stop={x,y,z}}
 
 --[[
 ************************
-**Orientation FUNCTIONS*
+**ORIENTATION FUNCTIONS*
 ************************
 ]]
 
@@ -50,7 +51,43 @@ end
 
 --[[
 ************************
-****Rednet FUNCTIONS****
+****CONFIG FUNCTIONS****
+************************
+]]
+
+local function write_config_value(key,value)
+    config[key]=value
+    local tmp = textutils.serialize(config)
+    local f = io.open("config.lua","w")
+    f:write(tmp)
+    f:close()
+end
+
+local function read_config()
+    local tmp
+    local f = io.open("config.lua","r")
+    if f ~= nil then
+        tmp = f:read("*all")
+        f:close()
+        config = textutils.unserialize(tmp)
+        return config
+    end
+end
+
+local function read_config_value(key)
+    local tmp
+    local f = io.open("config.lua","r")
+    if f ~= nil then
+        tmp = f:read("*all")
+        f:close()
+        config = textutils.unserialize(tmp)
+        return config[key]
+    end
+end
+
+--[[
+************************
+****REDNET FUNCTIONS****
 ************************
 ]]
 

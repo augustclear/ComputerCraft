@@ -13,6 +13,7 @@ gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Utili
 gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlelib.lua","lib/turtlelib")
 gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlebg.lua","turtlebg")
 gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/turtlefg.lua","turtlefg")
+gl.nuget("https://raw.githubusercontent.com/augustclear/ComputerCraft/main/Turtles/setconfig.lua","setconfig")
 
 term.clear()
 term.setCursorPos(1,1)
