@@ -375,7 +375,7 @@ end
 
 local function go_home()
     local ghome = read_config_value("home")
-    if ghome == nil then
+    if ghome[1] == nil then
         print("I have no home :(")
     else
         go_to(ghome[1],ghome[2],ghome[3]+10)
@@ -385,7 +385,7 @@ end
 
 local function go_to_fuelstop()
     local gfuel = read_config_value("fuel_stop")
-    if gfuel == nil then
+    if gfuel[1] == nil then
         print("I have no fuel stop :(")
     else
         go_to(gfuel[1],gfuel[2],gfuel[3]+10)
