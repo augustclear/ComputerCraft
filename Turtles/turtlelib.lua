@@ -158,7 +158,6 @@ local function face_direction(d)
         if direction == 5 then
             direction = 1
         end
-        --print(d .. " is not equal to " .. cardinal_directions[direction])
     end
 end
 
@@ -180,7 +179,7 @@ local function dd()
     end
 end
 
-local function mx(n)
+local function dx(n)
     get_location()
     local gx = x + n
     if n > 0 then
@@ -188,7 +187,6 @@ local function mx(n)
     elseif n < 0 then
         face_direction("west")
     end
-    --print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while x ~= gx do
         df()
         turtle.forward()
@@ -196,7 +194,7 @@ local function mx(n)
     end
 end
 
-local function my(n)
+local function dy(n)
     get_location()
     local gy = y + n
     if n > 0 then
@@ -204,7 +202,6 @@ local function my(n)
     elseif n < 0 then
         face_direction("south")
     end
-    --print("Moving " .. cardinal_directions[direction] .. " " .. n)
     while y ~= gy do
         df()
         turtle.forward()
@@ -212,7 +209,7 @@ local function my(n)
     end
 end
 
-local function mz(n)
+local function dz(n)
     get_location()
     local gz = z + n
     while z ~= gz do
@@ -227,6 +224,47 @@ local function mz(n)
     end
 end
 
+local function mx(n)
+    get_location()
+    local gx = x + n
+    if n > 0 then
+        face_direction("east")
+    elseif n < 0 then
+        face_direction("west")
+    end
+    while x ~= gx do
+        turtle.forward()
+        get_location()
+    end
+end
+
+local function my(n)
+    get_location()
+    local gy = y + n
+    if n > 0 then
+        face_direction("north")
+    elseif n < 0 then
+        face_direction("south")
+    end
+    while y ~= gy do
+        turtle.forward()
+        get_location()
+    end
+end
+
+local function mz(n)
+    get_location()
+    local gz = z + n
+    while z ~= gz do
+        if z < gz then
+            turtle.up()
+        elseif z > gz then
+            turtle.down()
+        end
+        get_location()
+    end
+end
+
 --[[
 ********************************
 ***COMPLEX MOVEMENT FUNCTIONS***
@@ -235,29 +273,35 @@ end
 
 local function go_to(gx, gy, gz)
     get_location()
-    --print("I have to move" .. gx-x .. " " .. gy-y .. " " .. gz-z)
     mz(gz-z)
     mx(gx-x)
     my(gy-y)
 end
 
+local function dig_to(gx gy, gz)
+    get_location()
+    dz(gz-z)
+    dx(gx-x)
+    dy(gy-y)
+end
+
 local function go_home()
-    local homex,homey,homez = read_config_value("home")
-    if homex == nil then
+    local ghome = read_config_value("home")
+    if ghome == nil then
         print("I have no home :(")
     else
-        go_to(homex,homey,270)
-        go_to(homex,homey,homez)
+        go_to(ghome[1],ghome[2],ghome[3]+10)
+        go_to(ghome[1],ghome[2],ghome[3])
     end
 end
 
 local function go_to_fuelstop()
-    local fuelx,fuely,fuelz = read_config_value("fuel_stop")
-    if fuelx == nil then
+    local gfuel = read_config_value("fuel_stop")
+    if gfuel == nil then
         print("I have no fuel stop :(")
     else
-        go_to(fuelx,fuely,fuelz + 10)
-        go_to(fuelx,fuely,fuelz)
+        go_to(gfuel[1],gfuel[2],gfuel[3]+10)
+        go_to(gfuel[1],gfuel[2],gfuel[3])
     end
 end
 
@@ -268,9 +312,10 @@ return {
     send_heartbeat = send_heartbeat,
     take_orders = take_orders,
     go_to = go_to,
-     go_home=go_home,
-    go_to_fuelstop=go_to_fuelstop,
-    write_config_value=write_config_value,
-    read_config=read_config,
-    read_config_value=read_config_value
+    dig_to = dig_to,
+    go_home = go_home,
+    go_to_fuelstop = go_to_fuelstop,
+    write_config_value = write_config_value,
+    read_config = read_config,
+    read_config_value = read_config_value
     }
