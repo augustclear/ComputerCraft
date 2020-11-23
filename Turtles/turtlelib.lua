@@ -278,7 +278,7 @@ local function go_to(gx, gy, gz)
     my(gy-y)
 end
 
-local function dig_to(gx gy, gz)
+local function dig_to(gx, gy, gz)
     get_location()
     dz(gz-z)
     dx(gx-x)
