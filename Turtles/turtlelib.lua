@@ -277,49 +277,49 @@ end
 
 local function suck(n)
     if n == nil then
-        suck()
+        turtle.suck(64)
     else
-        suck(n)
+        turtle.suck(n)
     end
 end
 
 local function suckd(n)
     if n == nil then
-        suckDown()
+        turtle.suckDown()
     else
-        suckDown(n)
+        turtle.suckDown(n)
     end
 end
 
 local function sucku(n)
     if n == nil then
-        suckUp()
+        turtle.suckUp(64)
     else
-        suckUp(n)
+        turtle.suckUp(n)
     end
 end
 
 local function drop(n)
     if n == nil then
-        drop()
+        turtle.drop(64)
     else
-        drop(n)
+        turtle.drop(n)
     end
 end
 
 local function dropd(n)
     if n == nil then
-        dropDown()
+        turtle.dropDown(64)
     else
-        dropDown(n)
+        turtle.dropDown(n)
     end
 end
 
 local function dropu(n)
     if n == nil then
-        dropUp()
+        turtle.dropUp(64)
     else
-        dropUp(n)
+        turtle.dropUp(n)
     end
 end
 
@@ -331,14 +331,14 @@ end
 local function load_inv()
     for i=1,16 do
         ss(i)
-        suck(64)
+        suck()
     end
 end
 
 local function unload_inv()
     for i=1,16 do
         ss(i)
-        drop(64)
+        drop()
     end
 end
 
@@ -346,7 +346,7 @@ local function load_fuel()
     face_direction("north")
     unload_inv()
     while turtle.getFuelLevel() < 90000 do
-        suckd(64)
+        suckd()
         turtle.refuel(64)
     end
     load_inv()
