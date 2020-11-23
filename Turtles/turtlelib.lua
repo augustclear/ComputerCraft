@@ -345,6 +345,7 @@ end
 local function load_fuel()
     face_direction("north")
     unload_inv()
+    ss(1)
     while turtle.getFuelLevel() < 90000 do
         suckd()
         turtle.refuel(64)
@@ -399,8 +400,12 @@ end
 ]]
 
 local function refuel()
-    go_to_fuelstop()
-    load_fuel()
+    if turtle.getFuelLevel() < 10000 then
+        go_to_fuelstop()
+        load_fuel()
+    else
+        print("I'm good on fuel, thanks!")
+    end
 end
 
 return {
