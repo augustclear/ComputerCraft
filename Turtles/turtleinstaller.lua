@@ -31,6 +31,6 @@ if turtle.getFuelLevel() < 1000 then
     print("I need food!!!!")
     turtle.refuel(1000)
 else
-    --id = shell.openTab("turtlefg")
-    --multishell.setTitle(id,"COMMAND")
+    id = shell.openTab("turtlefg")
+    multishell.setTitle(id,"COMMAND")
 end
