@@ -266,6 +266,93 @@ local function mz(n)
 end
 
 --[[
+*******************************
+*** BASIC ACTION FUNCTIONS***
+*******************************
+]]
+
+local function ss(n)
+    turtle.select(n)
+end
+
+local function suck(n)
+    if n == nil then
+        suck()
+    else
+        suck(n)
+    end
+end
+
+local function suckd(n)
+    if n == nil then
+        suckDown()
+    else
+        suckDown(n)
+    end
+end
+
+local function sucku(n)
+    if n == nil then
+        suckUp()
+    else
+        suckUp(n)
+    end
+end
+
+local function drop(n)
+    if n == nil then
+        drop()
+    else
+        drop(n)
+    end
+end
+
+local function dropd(n)
+    if n == nil then
+        dropDown()
+    else
+        dropDown(n)
+    end
+end
+
+local function dropu(n)
+    if n == nil then
+        dropUp()
+    else
+        dropUp(n)
+    end
+end
+
+--[[
+*******************************
+*** COMPLEX ACTION FUNCTIONS***
+*******************************
+]]
+local function load_inv()
+    for i=1,16 do
+        ss(i)
+        suck(64)
+    end
+end
+
+local function unload_inv()
+    for i=1,16 do
+        ss(i)
+        drop(64)
+    end
+end
+
+local function load_fuel()
+    face_direction("north")
+    unload_inv()
+    while turtle.getFuelLevel() < 90000 do
+        suckd(64)
+        turtle.refuel(64)
+    end
+    load_inv()
+end
+
+--[[
 ********************************
 ***COMPLEX MOVEMENT FUNCTIONS***
 ********************************
@@ -305,6 +392,17 @@ local function go_to_fuelstop()
     end
 end
 
+--[[
+*******************************
+*****COMBINATION FUNCTIONS*****
+*******************************
+]]
+
+local function refuel()
+    go_to_fuelstop()
+    load_fuel()
+end
+
 return {
     open = open,
     close = close,
@@ -314,7 +412,7 @@ return {
     go_to = go_to,
     dig_to = dig_to,
     go_home = go_home,
-    go_to_fuelstop = go_to_fuelstop,
+    refuel=refuel,
     write_config_value = write_config_value,
     read_config = read_config,
     read_config_value = read_config_value
